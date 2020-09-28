@@ -122,25 +122,20 @@ public class Main extends Application {
             getChildren().addAll(border, text);
 
             setOnMouseClicked(event -> {
-                if (!playable)
+
+                if (!playable) {
                     return;
+                }
 
-                if (event.getButton() == MouseButton.PRIMARY) {
-                    if (!turnX)
-                        return;
-
+                if (turnX) {
                     drawX();
                     turnX = false;
-                    checkState();
-                }
-                else if (event.getButton() == MouseButton.SECONDARY) {
-                    if (turnX)
-                        return;
-
+                } else {
                     drawO();
                     turnX = true;
-                    checkState();
                 }
+
+                checkState();
             });
         }
 
